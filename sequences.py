@@ -5,26 +5,26 @@ from decimal import Decimal
 
 class nextFunctions:
     @staticmethod
-    def linear(increment: Decimal) -> Callable[[sequence], sequence]:
+    def linear(increment: Decimal) -> Callable[[Decimal], Decimal]:
         """Creates a lambda incrementing input values by a given increment"""
         raise NotImplementedError("nextFunctions.linear is not implemented")
 
     @staticmethod
-    def geometric(multiplier: Decimal) -> Callable[[sequence], sequence]:
+    def geometric(multiplier: Decimal) -> Callable[[Decimal], Decimal]:
         """Creates a lambda multiplying input values by a given multiplier"""
         raise NotImplementedError("nextFunctions.geometric is not implemented")
 
 class sequence:
     def __init__(self: sequence,
                  currentTerm: Decimal | float,
-                 nextTermFunction: Callable[[sequence], sequence] = nextFunctions.linear(Decimal(1))
+                 nextTermFunction: Callable[[Decimal], Decimal] = nextFunctions.linear(Decimal(1))
                  ) -> None:
         """Initialises a sequence object
 
         :param currentTerm: Decimal determines current term in the sequence
         :param nextTermFunction: Callable function to determine next term in sequence"""
         self._currentTerm: Decimal = Decimal(currentTerm)
-        self._nextTermFunc: Callable[[sequence], sequence] = nextTermFunction
+        self._nextTermFunc: Callable[[Decimal], Decimal] = nextTermFunction
 
     def getCurrentTerm(self: sequence) -> Decimal:
         """Gets the current term of the object"""
