@@ -37,8 +37,9 @@ class sequence:
 
     def __repr__(self) -> str:
         """Creates a string representation of a sequence object"""
-        raise NotImplementedError("sequence.__repr__ is not implemented")
+        return f"""sequence(currentTerm = {self._currentTerm},
+                   nextTermFunc = {self._nextTermFunc.__name__})"""
 
     def __str__(self) -> str:
         """Creates an informal representation of a sequence object"""
-        raise NotImplementedError("sequence.__str__ is not implemented")
+        return repr(self)
