@@ -7,12 +7,12 @@ class nextFunctions:
     @staticmethod
     def linear(increment: Decimal) -> Callable[[Decimal], Decimal]:
         """Creates a lambda incrementing input values by a given increment"""
-        raise NotImplementedError("nextFunctions.linear is not implemented")
+        return lambda x: x + increment
 
     @staticmethod
     def geometric(multiplier: Decimal) -> Callable[[Decimal], Decimal]:
         """Creates a lambda multiplying input values by a given multiplier"""
-        raise NotImplementedError("nextFunctions.geometric is not implemented")
+        return lambda x: x * multiplier
 
 class sequence:
     def __init__(self: sequence,
