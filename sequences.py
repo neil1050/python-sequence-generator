@@ -32,7 +32,8 @@ class sequence:
 
     def nextTerm(self: sequence) -> sequence:
         """Creates a sequence object for the next term"""
-        raise NotImplementedError("sequence.nextTerm is not implemented")
+        return sequence(currentTerm = self._nextTermFunc(self._currentTerm),
+                        nextTermFunction = self._nextTermFunc)
 
     def __repr__(self) -> str:
         """Creates a string representation of a sequence object"""
