@@ -28,7 +28,7 @@ class sequence:
 
     def getCurrentTerm(self: sequence) -> Decimal:
         """Gets the current term of the object"""
-        raise NotImplementedError("sequence.getCurrentTerm is not implemented")
+        return self._currentTerm
 
     def nextTerm(self: sequence) -> sequence:
         """Creates a sequence object for the next term"""
