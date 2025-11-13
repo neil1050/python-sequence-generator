@@ -23,7 +23,8 @@ class sequence:
 
         :param currentTerm: Decimal determines current term in the sequence
         :param nextTermFunction: Callable function to determine next term in sequence"""
-        raise NotImplementedError("sequence.__init__ is not implemented")
+        self._currentTerm: Decimal = Decimal(currentTerm)
+        self._nextTermFunc: Callable[[sequence], sequence] = nextTermFunction
 
     def getCurrentTerm(self: sequence) -> Decimal:
         """Gets the current term of the object"""
