@@ -3,7 +3,7 @@
 from collections.abc import Callable
 from decimal import Decimal
 
-class nextFunctions:
+class NextFunctions:
     @staticmethod
     def linear(increment: Decimal) -> Callable[[Decimal], Decimal]:
         """Creates a lambda incrementing input values by a given increment"""
@@ -14,26 +14,26 @@ class nextFunctions:
         """Creates a lambda multiplying input values by a given multiplier"""
         return lambda x: x * multiplier
 
-class sequence:
-    def __init__(self: sequence,
-                 currentTerm: Decimal | float,
-                 nextTermFunction: Callable[[Decimal], Decimal] = nextFunctions.linear(Decimal(1))
+class Sequence:
+    def __init__(self: Sequence,
+                 current_term: Decimal | float,
+                 next_term_function: Callable[[Decimal], Decimal] = NextFunctions.linear(Decimal(1))
                  ) -> None:
         """Initialises a sequence object
 
-        :param currentTerm: Decimal determines current term in the sequence
-        :param nextTermFunction: Callable function to determine next term in sequence"""
-        self._currentTerm: Decimal = Decimal(currentTerm)
-        self._nextTermFunc: Callable[[Decimal], Decimal] = nextTermFunction
+        :param current_term: Decimal determines current term in the sequence
+        :param next_term_function: Callable function to determine next term in sequence"""
+        self._currentTerm: Decimal = Decimal(current_term)
+        self._nextTermFunc: Callable[[Decimal], Decimal] = next_term_function
 
-    def getCurrentTerm(self: sequence) -> Decimal:
+    def get_current_term(self: Sequence) -> Decimal:
         """Gets the current term of the object"""
         return self._currentTerm
 
-    def nextTerm(self: sequence) -> sequence:
+    def next_term(self: Sequence) -> Sequence:
         """Creates a sequence object for the next term"""
-        return sequence(currentTerm = self._nextTermFunc(self._currentTerm),
-                        nextTermFunction = self._nextTermFunc)
+        return Sequence(current_term = self._nextTermFunc(self._currentTerm),
+                        next_term_function= self._nextTermFunc)
 
     def __repr__(self) -> str:
         """Creates a string representation of a sequence object"""
